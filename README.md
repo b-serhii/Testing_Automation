@@ -5,7 +5,7 @@
 ## Структура проєкту
 
 - `src/temperature.ts` – показовий модуль (°C → °F);
-- `src/bmi.ts` – модуль за варіантом 2 (індекс маси тіла);
+- `src/distance.ts` – модуль за варіантом 1 (кілометри ↔ милі);
 - `tests/` – тести Vitest для кожного модуля;
 - `vitest.config.ts`, `tsconfig.json`, `eslint.config.mjs`, `.prettierrc` – конфігурація.
 
