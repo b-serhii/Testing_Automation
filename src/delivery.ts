@@ -10,5 +10,6 @@ export function calcDeliveryFee(
   if (!Number.isFinite(weightKg) || weightKg <= 0) {
     throw new Error('INVALID_WEIGHT');
   }
-  return 50;
+  if (weightKg <= 5) return 50;
+  return 50 + Math.ceil(weightKg - 5) * 10;
 }
