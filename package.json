@@ -1,0 +1,16 @@
+{
+  "name": "lab3-tdd-delivery",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Лабораторна робота №3. Розроблення через тестування (TDD), варіант 1: тарифікатор доставки",
+  "scripts": {
+    "test": "vitest run",
+    "coverage": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^2.1.9",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.9"
+  }
+}
