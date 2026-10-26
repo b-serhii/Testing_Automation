@@ -27,3 +27,14 @@ describe('Цикл 3. Кожен наступний розпочатий кіл�
     expect(calcDeliveryFee(weight)).toBe(expected);
   });
 });
+
+describe('Цикл 4. Максимальний тариф 300 грн', () => {
+  it.each([
+    { weight: 29, expected: 290 },
+    { weight: 30, expected: 300 },
+    { weight: 31, expected: 300 },
+    { weight: 100, expected: 300 },
+  ])('вага $weight кг → $expected грн', ({ weight, expected }) => {
+    expect(calcDeliveryFee(weight)).toBe(expected);
+  });
+});
