@@ -80,3 +80,18 @@ describe('Цикл 6. Безкоштовна доставка від 1000 грн
     },
   );
 });
+
+describe('Цикл 7. Некоректна сума замовлення', () => {
+  it.each([-1, -0.01, Number.NaN, Number.POSITIVE_INFINITY])(
+    'відхиляє суму %s кодом INVALID_AMOUNT',
+    (orderAmount) => {
+      expect(() => calcDeliveryFee(5, { orderAmount })).toThrow(
+        'INVALID_AMOUNT',
+      );
+    },
+  );
+
+  it('приймає нульову суму замовлення', () => {
+    expect(calcDeliveryFee(5, { orderAmount: 0 })).toBe(50);
+  });
+});
