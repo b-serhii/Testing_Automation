@@ -15,3 +15,15 @@ describe('Цикл 2. Базовий тариф до 5 кг', () => {
     expect(calcDeliveryFee(weight)).toBe(50);
   });
 });
+
+describe('Цикл 3. Кожен наступний розпочатий кілограм', () => {
+  it.each([
+    { weight: 5, expected: 50 },
+    { weight: 5.01, expected: 60 },
+    { weight: 6, expected: 60 },
+    { weight: 6.01, expected: 70 },
+    { weight: 10, expected: 100 },
+  ])('вага $weight кг → $expected грн', ({ weight, expected }) => {
+    expect(calcDeliveryFee(weight)).toBe(expected);
+  });
+});
