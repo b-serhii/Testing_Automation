@@ -1,5 +1,7 @@
 export interface DeliveryOptions {
+  /** Експрес-доставка: подвійний тариф. */
   express?: boolean;
+  /** Сума замовлення в гривнях; від 1000 грн доставка безкоштовна. */
   orderAmount?: number;
 }
 
@@ -9,6 +11,18 @@ const EXTRA_KG_FEE = 10;
 const MAX_FEE = 300;
 const EXPRESS_RATE = 2;
 const FREE_DELIVERY_FROM = 1000;
+
+function assertValidWeight(weightKg: number): void {
+  if (!Number.isFinite(weightKg) || weightKg <= 0) {
+    throw new Error('INVALID_WEIGHT');
+  }
+}
+
+function assertValidOrderAmount(orderAmount: number): void {
+  if (!Number.isFinite(orderAmount) || orderAmount < 0) {
+    throw new Error('INVALID_AMOUNT');
+  }
+}
 
 export function calcBaseFee(weightKg: number): number {
   if (weightKg <= BASE_WEIGHT_KG) return BASE_FEE;
@@ -24,13 +38,9 @@ export function calcDeliveryFee(
   weightKg: number,
   options: DeliveryOptions = {},
 ): number {
-  if (!Number.isFinite(weightKg) || weightKg <= 0) {
-    throw new Error('INVALID_WEIGHT');
-  }
   const orderAmount = options.orderAmount ?? 0;
-  if (!Number.isFinite(orderAmount) || orderAmount < 0) {
-    throw new Error('INVALID_AMOUNT');
-  }
+  assertValidWeight(weightKg);
+  assertValidOrderAmount(orderAmount);
   if (orderAmount >= FREE_DELIVERY_FROM) return 0;
   return applyExpress(calcBaseFee(weightKg), options);
 }
