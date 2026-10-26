@@ -38,3 +38,22 @@ describe('Цикл 4. Максимальний тариф 300 грн', () => {
     expect(calcDeliveryFee(weight)).toBe(expected);
   });
 });
+
+describe('Цикл 5. Експрес-доставка (подвійний тариф)', () => {
+  it.each([
+    { weight: 5, expected: 100 },
+    { weight: 6, expected: 120 },
+    { weight: 29, expected: 580 },
+    { weight: 30, expected: 600 },
+    { weight: 31, expected: 600 },
+  ])(
+    'експрес, вага $weight кг → $expected грн',
+    ({ weight, expected }) => {
+      expect(calcDeliveryFee(weight, { express: true })).toBe(expected);
+    },
+  );
+
+  it('прапорець express: false не змінює тариф', () => {
+    expect(calcDeliveryFee(6, { express: false })).toBe(60);
+  });
+});
