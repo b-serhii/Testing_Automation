@@ -27,6 +27,10 @@ export function calcDeliveryFee(
   if (!Number.isFinite(weightKg) || weightKg <= 0) {
     throw new Error('INVALID_WEIGHT');
   }
-  if ((options.orderAmount ?? 0) >= FREE_DELIVERY_FROM) return 0;
+  const orderAmount = options.orderAmount ?? 0;
+  if (!Number.isFinite(orderAmount) || orderAmount < 0) {
+    throw new Error('INVALID_AMOUNT');
+  }
+  if (orderAmount >= FREE_DELIVERY_FROM) return 0;
   return applyExpress(calcBaseFee(weightKg), options);
 }
