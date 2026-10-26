@@ -57,3 +57,26 @@ describe('Цикл 5. Експрес-доставка (подвійний тар
     expect(calcDeliveryFee(6, { express: false })).toBe(60);
   });
 });
+
+describe('Цикл 6. Безкоштовна доставка від 1000 грн', () => {
+  it.each([
+    { orderAmount: 999, expected: 50 },
+    { orderAmount: 1000, expected: 0 },
+    { orderAmount: 1001, expected: 0 },
+  ])(
+    'сума замовлення $orderAmount → доставка $expected грн',
+    ({ orderAmount, expected }) => {
+      expect(calcDeliveryFee(5, { orderAmount })).toBe(expected);
+    },
+  );
+
+  it.each([
+    { orderAmount: 999, expected: 100 },
+    { orderAmount: 1000, expected: 0 },
+  ])(
+    'експрес, сума замовлення $orderAmount → $expected грн',
+    ({ orderAmount, expected }) => {
+      expect(calcDeliveryFee(5, { express: true, orderAmount })).toBe(expected);
+    },
+  );
+});
