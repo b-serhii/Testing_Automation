@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Orders API" tests="6" time="0.031">
+  <testsuite name="Login" id="ca608f70-2972-4077-a4b9-a10f1212df8b" timestamp="2026-10-27T10:09:18.638Z" tests="1" failures="0" errors="0" time="0.023">
+    <testcase name="статус 200" time="0.023" classname="Login"/>
+  </testsuite>
+  <testsuite name="Create order" id="33fa5d9f-6745-456f-8312-127bd6c53548" timestamp="2026-10-27T10:09:18.638Z" tests="3" failures="0" errors="0" time="0.002">
+    <testcase name="статус 201" time="0.002" classname="CreateOrder"/>
+    <testcase name="сума з доставкою" time="0.002" classname="CreateOrder"/>
+    <testcase name="початковий статус new" time="0.002" classname="CreateOrder"/>
+  </testsuite>
+  <testsuite name="Get order" id="0dcb0c25-3a20-459b-8f7f-664dd37a79ec" timestamp="2026-10-27T10:09:18.638Z" tests="2" failures="0" errors="0" time="0.002">
+    <testcase name="статус 200" time="0.002" classname="GetOrder"/>
+    <testcase name="id збігається" time="0.002" classname="GetOrder"/>
+  </testsuite>
+  <testsuite name="Set status paid" id="c9e21584-b7d6-4a5c-a099-46181a7c51e5" timestamp="2026-10-27T10:09:18.638Z" tests="3" failures="0" errors="0" time="0.001">
+    <testcase name="статус 200" time="0.001" classname="SetStatusPaid"/>
+    <testcase name="статус замовлення paid" time="0.001" classname="SetStatusPaid"/>
+    <testcase name="відповідь у форматі JSON" time="0.001" classname="SetStatusPaid"/>
+  </testsuite>
+  <testsuite name="Invalid transition paid to new" id="5ee80641-341f-4def-a644-7c3615f8e8aa" timestamp="2026-10-27T10:09:18.638Z" tests="2" failures="0" errors="0" time="0.001">
+    <testcase name="статус 409" time="0.001" classname="InvalidTransitionPaidToNew"/>
+    <testcase name="код INVALID_TRANSITION і поточний статус" time="0.001" classname="InvalidTransitionPaidToNew"/>
+  </testsuite>
+  <testsuite name="Get order after update" id="a28d6bb3-2374-490d-b9ce-c235cce4e8d9" timestamp="2026-10-27T10:09:18.638Z" tests="2" failures="0" errors="0" time="0.002">
+    <testcase name="статус 200" time="0.002" classname="GetOrderAfterUpdate"/>
+    <testcase name="статус залишився paid після відхиленого переходу" time="0.002" classname="GetOrderAfterUpdate"/>
+  </testsuite>
+</testsuites>
