@@ -1,0 +1,25 @@
+{
+  "name": "qa-automation-lab7",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "test:variant": "playwright test tests/variant1.spec.ts",
+    "test:forms": "playwright test tests/forms.spec.ts",
+    "test:tables": "playwright test tests/tables.spec.ts",
+    "test:dialogs": "playwright test tests/dialogs.spec.ts",
+    "test:files": "playwright test tests/files.spec.ts",
+    "test:tabs": "playwright test tests/tabs-frames.spec.ts",
+    "test:dynamic": "playwright test tests/dynamic.spec.ts",
+    "test:firefox": "cross_browser=1 playwright test --project=firefox",
+    "typecheck": "tsc --noEmit",
+    "report": "playwright show-report",
+    "codegen": "playwright codegen https://the-internet.herokuapp.com"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.8.3"
+  }
+}
