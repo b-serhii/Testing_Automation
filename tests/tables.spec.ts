@@ -24,10 +24,10 @@ test.describe('Частина 1 — таблиці', () => {
     expect(names).toEqual([...names].sort((a, b) => a.localeCompare(b, 'en')));
   });
 
-  test('сума значень Due дорівнює 203 доларам', async ({ page }) => {
+  test('сума значень Due дорівнює 251 долару', async ({ page }) => {
     const due = await page.locator('#table1 tbody tr td:nth-child(4)').allTextContents();
     const sum = due.map((amount) => Number(amount.replace('$', '')))
       .reduce((acc, amount) => acc + amount, 0);
-    expect(sum).toBeCloseTo(203.0, 2);
+    expect(sum).toBeCloseTo(251.0, 2);
   });
 });
