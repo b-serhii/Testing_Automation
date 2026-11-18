@@ -1,0 +1,3 @@
+PASS first-first: 0→1→2→3→4→5→4→3
+PASS last-first: 0→1→2→3→4→5→4→3
+2 passed (LOCAL Chromium fixture; tests written in Python, not TypeScript runner)
